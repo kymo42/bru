@@ -1,0 +1,35 @@
+name: Weekly Data Refresh
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'   # Every Monday at 2am UTC (midday AEST)
+  workflow_dispatch:        # Allow manual trigger
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests yfinance
+
+      - name: Run data refresh
+        env:
+          BRU_UPDATE_SECRET: ${{ secrets.BRU_UPDATE_SECRET }}
+          BRU_WORKER_URL: ${{ vars.BRU_WORKER_URL }}
+        run: python data_refresh.py
+
+      - name: Commit updated data.json
+        run: |
+          git config --global user.name "bru-bot"
+          git config --global user.email "bot@bru.lol"
+          git add data.json
+          git diff --staged --quiet || git commit -m "chore: weekly data refresh $(date -u +%Y-%m-%d)"
+          git push

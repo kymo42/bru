@@ -1,0 +1,15 @@
+name = "bru"
+main = "worker.js"
+compatibility_date = "2024-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "BRU_DATA"
+id = "e961b87ed78e48f28dffee6e3a782f5c"
+
+[vars]
+ENVIRONMENT = "production"
+
+[[routes]]
+pattern = "bru.lol/*"
+zone_name = "bru.lol"

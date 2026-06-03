@@ -1,0 +1,341 @@
+{
+  "last_updated": "2026-06-03 16:18 UTC",
+  "overall_stress_level": 7,
+  "rba_personal_credit": [
+    [
+      "31/05/2023",
+      143.1
+    ],
+    [
+      "30/06/2023",
+      144.3
+    ],
+    [
+      "31/07/2023",
+      143.0
+    ],
+    [
+      "31/08/2023",
+      143.8
+    ],
+    [
+      "30/09/2023",
+      144.6
+    ],
+    [
+      "31/10/2023",
+      145.0
+    ],
+    [
+      "30/11/2023",
+      144.8
+    ],
+    [
+      "31/12/2023",
+      144.0
+    ],
+    [
+      "31/01/2024",
+      144.0
+    ],
+    [
+      "29/02/2024",
+      145.2
+    ],
+    [
+      "31/03/2024",
+      151.3
+    ],
+    [
+      "30/04/2024",
+      151.4
+    ],
+    [
+      "31/05/2024",
+      151.2
+    ],
+    [
+      "30/06/2024",
+      152.2
+    ],
+    [
+      "31/07/2024",
+      151.4
+    ],
+    [
+      "31/08/2024",
+      151.3
+    ],
+    [
+      "30/09/2024",
+      152.0
+    ],
+    [
+      "31/10/2024",
+      152.2
+    ],
+    [
+      "30/11/2024",
+      153.2
+    ],
+    [
+      "31/12/2024",
+      153.6
+    ],
+    [
+      "31/01/2025",
+      153.0
+    ],
+    [
+      "28/02/2025",
+      154.0
+    ],
+    [
+      "31/03/2025",
+      154.7
+    ],
+    [
+      "30/04/2025",
+      155.7
+    ],
+    [
+      "31/05/2025",
+      156.5
+    ],
+    [
+      "30/06/2025",
+      157.6
+    ],
+    [
+      "31/07/2025",
+      156.6
+    ],
+    [
+      "31/08/2025",
+      157.5
+    ],
+    [
+      "30/09/2025",
+      158.6
+    ],
+    [
+      "31/10/2025",
+      158.9
+    ],
+    [
+      "30/11/2025",
+      159.6
+    ],
+    [
+      "31/12/2025",
+      159.9
+    ],
+    [
+      "31/01/2026",
+      159.6
+    ],
+    [
+      "28/02/2026",
+      160.9
+    ],
+    [
+      "31/03/2026",
+      162.5
+    ],
+    [
+      "30/04/2026",
+      163.7
+    ]
+  ],
+  "rba_12mo_change": 8.0,
+  "ccv_price": 0.29,
+  "ccp_price": 11.69,
+  "ccv_static": {
+    "revenue_fy2024": 310,
+    "revenue_fy2023": 296,
+    "stores_au": 165,
+    "loan_book_growth_fy23_pct": 20
+  },
+  "insolvency": {
+    "FY2024_total": 12447,
+    "FY2024_yoy_pct": 15.3,
+    "FY2023_total": 10799,
+    "trend": "rising",
+    "source": "https://www.afsa.gov.au/about-us/statistics-and-insights",
+    "note": "Part IX Debt Agreements leading growth in FY2024.",
+    "last_checked": "2026-06-03"
+  },
+  "stress_levels": [
+    {
+      "level": 1,
+      "emoji": "\ud83d\udcb3",
+      "label": "Bank credit / mortgages",
+      "trend": "stable",
+      "status": "Stable",
+      "detail": "Mortgage arrears elevated but not crisis levels (RBA Oct 2024)"
+    },
+    {
+      "level": 2,
+      "emoji": "\ud83d\udce6",
+      "label": "BNPL",
+      "trend": "stable",
+      "status": "Stable",
+      "detail": "Afterpay flat post-peak. ZIP volumes recovering but bad debts elevated."
+    },
+    {
+      "level": 3,
+      "emoji": "\u23f0",
+      "label": "Salary advance / EWA",
+      "trend": "rising",
+      "status": "Rising \u2191",
+      "detail": "BeforePay active customers growing YoY. MyPayNow stable."
+    },
+    {
+      "level": 4,
+      "emoji": "\ud83c\udfe6",
+      "label": "Fintech personal loans",
+      "trend": "rising",
+      "status": "Rising \u2191",
+      "detail": "Wisr + Plenti loan books growing but arrears ticking up."
+    },
+    {
+      "level": 5,
+      "emoji": "\ud83d\udcb5",
+      "label": "Payday / SACC",
+      "trend": "rising",
+      "status": "Rising \u2191",
+      "detail": "CCV Australian loan book +20% FY2023, +15% FY2024."
+    },
+    {
+      "level": 6,
+      "emoji": "\ud83c\udfea",
+      "label": "Pawnbroking",
+      "trend": "rising",
+      "status": "Rising \u2191",
+      "detail": "CCV revenue +38% over 3 years. CEO signals broader demand base."
+    },
+    {
+      "level": 7,
+      "emoji": "\ud83d\udcfa",
+      "label": "Rent-to-own",
+      "trend": "falling",
+      "status": "Declining \u2193",
+      "detail": "Radio Rentals contracted after ASIC action. Market shrinking."
+    },
+    {
+      "level": 8,
+      "emoji": "\ud83d\udcde",
+      "label": "Debt collection",
+      "trend": "rising",
+      "status": "Rising \u2191",
+      "detail": "CCP PDL acquisitions at record. Lagging indicator \u2014 still rising."
+    },
+    {
+      "level": 9,
+      "emoji": "\u2696\ufe0f",
+      "label": "Personal insolvency",
+      "trend": "rising",
+      "status": "Rising \u2191 (+15.3%)",
+      "detail": "AFSA FY2024: 12,447 total. Part IX Debt Agreements leading growth."
+    }
+  ],
+  "desperation_scale": [
+    {
+      "level": 1,
+      "emoji": "\ud83d\udcb3",
+      "label": "Big Bank Credit Cards / Mortgages",
+      "typical_apr": "~6\u201320% p.a.",
+      "exploitability": "LOW \u2014 competitive, regulated, credit-checked",
+      "economic_signal": "Baseline. Rising balances = confidence OR early stress.",
+      "data_proxy": "RBA D2: housing credit",
+      "rises_in_stress": false
+    },
+    {
+      "level": 2,
+      "emoji": "\ud83d\udce6",
+      "label": "Buy Now Pay Later (BNPL)",
+      "typical_apr": "0% on-time / ~30\u201360% effective if fees triggered",
+      "exploitability": "MEDIUM \u2014 late fees, encourages overspending",
+      "economic_signal": "Rising BNPL use = cash-flow squeeze, payment deferral.",
+      "data_proxy": "ASX:ZIP revenue + bad debt ratio",
+      "rises_in_stress": true,
+      "notes": "BNPL peaked 2021\u201322 then fell as regulation tightened. ZIP bad debts rose sharply 2022\u201323."
+    },
+    {
+      "level": 3,
+      "emoji": "\u23f0",
+      "label": "Salary Advance / Earned Wage Access",
+      "typical_apr": "~5% flat fee \u2192 ~130% effective APR annualised",
+      "exploitability": "MEDIUM-HIGH \u2014 targets paycheque-to-paycheque workers",
+      "economic_signal": "Rising demand = workers can't bridge gap to payday.",
+      "data_proxy": "ASX:B4P active customers (quarterly)",
+      "rises_in_stress": true,
+      "notes": "BeforePay (B4P) listed ASX 2022. MyPayNow faced ASIC scrutiny 2021 for unlicensed credit."
+    },
+    {
+      "level": 4,
+      "emoji": "\ud83c\udfe6",
+      "label": "Non-Bank Personal Loans (Fintech)",
+      "typical_apr": "8\u201325% p.a. (risk-based pricing)",
+      "exploitability": "MEDIUM \u2014 cheaper than payday but costly at high risk tiers",
+      "economic_signal": "Rising demand + falling approvals = tightening stress.",
+      "data_proxy": "ASX:WZR (Wisr) + ASX:PLT (Plenti) loan books + arrears",
+      "rises_in_stress": true
+    },
+    {
+      "level": 5,
+      "emoji": "\ud83d\udcb5",
+      "label": "Payday / SACC Loans",
+      "typical_apr": "NCCP cap: 20% estab + 4%/mo = 48%+ p.a. min; ~400%+ on 2-week loan",
+      "exploitability": "HIGH \u2014 maximum legal rate, targets credit-impaired",
+      "economic_signal": "Rising originations = significant financial stress.",
+      "data_proxy": "ASX:CCV Australian loan book growth (half-yearly)",
+      "rises_in_stress": true,
+      "notes": "ASIC reported ~1.77M SACCs originated p.a. (2016\u201317 data, latest published)."
+    },
+    {
+      "level": 6,
+      "emoji": "\ud83c\udfea",
+      "label": "Pawnbroking",
+      "typical_apr": "Effective 60\u2013200%+ (varies by state)",
+      "exploitability": "HIGH \u2014 lose your asset if you can't repay; no credit check",
+      "economic_signal": "\u2191 pawn activity = last resort before crisis. Industry $655M, 841 businesses.",
+      "data_proxy": "ASX:CCV pawn volumes + ASIC credit licence count + ABS ANZSIC 6229",
+      "rises_in_stress": true,
+      "notes": "Cash Converters loan book +20% FY2023. CEO cited 'broader cross-section' of society (AFR Oct 2023)."
+    },
+    {
+      "level": 7,
+      "emoji": "\ud83d\udcfa",
+      "label": "Rent-to-Own / Consumer Leases",
+      "typical_apr": "60\u2013300%+ effective (e.g. $400 TV \u2192 $1,500+ in lease payments)",
+      "exploitability": "VERY HIGH \u2014 targets Centrelink recipients, direct debits welfare payments",
+      "economic_signal": "Growing lease volumes = unable to save for essentials.",
+      "data_proxy": "ASX:TGA (Thorn/Radio Rentals) lease book",
+      "rises_in_stress": true,
+      "notes": "Radio Rentals downsized significantly post-2019 after ASIC enforcement action for unconscionable conduct."
+    },
+    {
+      "level": 8,
+      "emoji": "\ud83d\udcde",
+      "label": "Debt Collection / Distressed Debt",
+      "typical_apr": "N/A \u2014 delinquent/charged-off debts",
+      "exploitability": "EXTREME \u2014 collection on already-distressed people",
+      "economic_signal": "Rising PDL volumes = wave of defaults upstream. Lags by 12\u201318 months.",
+      "data_proxy": "ASX:CCP PDL acquisitions + collection rates (half-yearly)",
+      "rises_in_stress": true,
+      "notes": "Credit Corp record PDL acquisitions FY2022\u201323 as banks sold COVID-deferred debt portfolios."
+    },
+    {
+      "level": 9,
+      "emoji": "\u2696\ufe0f",
+      "label": "Personal Insolvency",
+      "typical_apr": "N/A \u2014 terminal event",
+      "exploitability": "HIGH \u2014 debt agreement admin fees can consume large % of repayments",
+      "economic_signal": "FY2024: 12,447 (+15.3% YoY). Part IX Debt Agreements growing fastest. Lags 6\u201324 months.",
+      "data_proxy": "AFSA quarterly stats: afsa.gov.au/about-us/statistics-and-insights",
+      "rises_in_stress": true,
+      "notes": "Lagging indicator \u2014 6\u201324 months behind the inciting financial stress."
+    }
+  ]
+}
