@@ -1,5 +1,5 @@
 /**
- * bru.lol — Australian Financial Stress Tracker
+ * Financial Stress Tracker
  * Cloudflare Worker
  *
  * Routes:
@@ -162,7 +162,7 @@ function buildHTML(data) {
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${SITE_TITLE}</title>
-  <meta name="description" content="Real-time tracker of Australian household financial stress using pawn shop activity, personal insolvency data, and credit metrics as economic indicators."/>
+  <meta name="description" content="Real-time tracker of household financial stress using pawn shop activity, personal insolvency data, and credit metrics as economic indicators."/>
   <style>
     :root {
       --bg: #0d0d0d;
@@ -241,7 +241,7 @@ function buildHTML(data) {
     /* Desperation scale */
     .scale-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; margin-top: 16px; }
     .scale-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; position: relative; overflow: hidden; }
-    .scale-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .scale-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 12px; }
     .exploit-low::before { background: var(--green); }
     .exploit-medium::before { background: var(--yellow); }
     .exploit-high::before { background: var(--orange); }
@@ -465,7 +465,7 @@ function buildHTML(data) {
   <!-- Methodology -->
   <div class="methodology">
     <strong>Methodology & Data Sources</strong><br/>
-    This tracker monitors the Australian alternative credit ecosystem as a proxy for household financial stress. The core thesis: when people resort to higher-level credit products (pawnbroking, payday loans), it signals broader economic distress that mainstream indicators often miss or lag.<br/><br/>
+    This tracker monitors the alternative credit ecosystem as a proxy for household financial stress. The core thesis: when people resort to higher-level credit products (pawnbroking, payday loans), it signals broader economic distress that mainstream indicators often miss or lag.<br/><br/>
     <strong>Data sources:</strong>
     <a href="https://www.rba.gov.au/statistics/tables/csv/d2-data.csv">RBA D2 CSV (monthly)</a> ·
     <a href="https://www.afsa.gov.au/about-us/statistics-and-insights">AFSA Insolvency Stats</a> ·
