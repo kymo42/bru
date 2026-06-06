@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-03 16:18 UTC",
-  "overall_stress_level": 7,
+  "last_updated": "2026-06-06 08:11 UTC",
+  "overall_stress_level": 8,
   "rba_personal_credit": [
     [
       "31/05/2023",
@@ -148,8 +148,14 @@
     ]
   ],
   "rba_12mo_change": 8.0,
-  "ccv_price": 0.29,
-  "ccp_price": 11.69,
+  "ccv_price": 0.285,
+  "ccp_price": 11.65,
+  "pokie_static": {
+    "nsw_annual_net_loss": "~$4.5B+",
+    "vic_annual_net_loss": "~$3.2B+",
+    "major_operators": "Australian Venue Co (AVC), HTP, Stellar Group",
+    "market_share": "~60% of NSW/VIC pokie licenses held by multi-pub operators"
+  },
   "ccv_static": {
     "revenue_fy2024": 310,
     "revenue_fy2023": 296,
@@ -163,7 +169,7 @@
     "trend": "rising",
     "source": "https://www.afsa.gov.au/about-us/statistics-and-insights",
     "note": "Part IX Debt Agreements leading growth in FY2024.",
-    "last_checked": "2026-06-03"
+    "last_checked": "2026-06-06"
   },
   "stress_levels": [
     {
@@ -208,6 +214,14 @@
     },
     {
       "level": 6,
+      "emoji": "\ud83c\udfb0",
+      "label": "Poker Machines (Pubs/Clubs)",
+      "trend": "rising",
+      "status": "Rising \u2191",
+      "detail": "NSW/VIC net losses remain elevated. Multi-pub operators (AVC, HTP) drive structural venue demand."
+    },
+    {
+      "level": 7,
       "emoji": "\ud83c\udfea",
       "label": "Pawnbroking",
       "trend": "rising",
@@ -215,7 +229,7 @@
       "detail": "CCV revenue +38% over 3 years. CEO signals broader demand base."
     },
     {
-      "level": 7,
+      "level": 8,
       "emoji": "\ud83d\udcfa",
       "label": "Rent-to-own",
       "trend": "falling",
@@ -223,7 +237,7 @@
       "detail": "Radio Rentals contracted after ASIC action. Market shrinking."
     },
     {
-      "level": 8,
+      "level": 9,
       "emoji": "\ud83d\udcde",
       "label": "Debt collection",
       "trend": "rising",
@@ -231,7 +245,7 @@
       "detail": "CCP PDL acquisitions at record. Lagging indicator \u2014 still rising."
     },
     {
-      "level": 9,
+      "level": 10,
       "emoji": "\u2696\ufe0f",
       "label": "Personal insolvency",
       "trend": "rising",
@@ -295,6 +309,17 @@
     },
     {
       "level": 6,
+      "emoji": "\ud83c\udfb0",
+      "label": "Poker Machines (Pubs & Clubs)",
+      "typical_apr": "N/A \u2014 avg net loss ~$1,200\u2013$1,500 per adult p.a. in NSW/VIC",
+      "exploitability": "VERY HIGH \u2014 continuous play, near-miss psychology, direct debit from welfare",
+      "economic_signal": "Rising net losses = households diverting essential funds to gambling.",
+      "data_proxy": "ASX:ALG (Ainsworth) + ASX:TGR (Tabcorp) venue exposure; NSW/VIC monthly net loss stats",
+      "rises_in_stress": true,
+      "notes": "Multi-pub operators (e.g., Australian Venue Co, HTP, Stellar) hold ~60% of NSW/VIC pokie licenses. Structural demand remains high despite cost-of-living pressures."
+    },
+    {
+      "level": 7,
       "emoji": "\ud83c\udfea",
       "label": "Pawnbroking",
       "typical_apr": "Effective 60\u2013200%+ (varies by state)",
@@ -305,7 +330,7 @@
       "notes": "Cash Converters loan book +20% FY2023. CEO cited 'broader cross-section' of society (AFR Oct 2023)."
     },
     {
-      "level": 7,
+      "level": 8,
       "emoji": "\ud83d\udcfa",
       "label": "Rent-to-Own / Consumer Leases",
       "typical_apr": "60\u2013300%+ effective (e.g. $400 TV \u2192 $1,500+ in lease payments)",
@@ -316,7 +341,7 @@
       "notes": "Radio Rentals downsized significantly post-2019 after ASIC enforcement action for unconscionable conduct."
     },
     {
-      "level": 8,
+      "level": 9,
       "emoji": "\ud83d\udcde",
       "label": "Debt Collection / Distressed Debt",
       "typical_apr": "N/A \u2014 delinquent/charged-off debts",
@@ -327,7 +352,7 @@
       "notes": "Credit Corp record PDL acquisitions FY2022\u201323 as banks sold COVID-deferred debt portfolios."
     },
     {
-      "level": 9,
+      "level": 10,
       "emoji": "\u2696\ufe0f",
       "label": "Personal Insolvency",
       "typical_apr": "N/A \u2014 terminal event",
