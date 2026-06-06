@@ -470,7 +470,7 @@ function buildHTML(data) {
     <a href="https://www.rba.gov.au/statistics/tables/csv/d2-data.csv">RBA D2 CSV (monthly)</a> ·
     <a href="https://www.afsa.gov.au/about-us/statistics-and-insights">AFSA Insolvency Stats</a> ·
     <a href="https://www.asx.com.au/markets/company/ccv">ASX:CCV filings</a> ·
-    <a href="https://www.ibisworld.com/au/industry/pawnbroking/4522/">IBISWorld AU Pawnbroking</a> ·
+    <a href="https://www.ibisworld.com/au/industry/pawnbroking/4522/">IBISWorld Pawnbroking</a> ·
     <a href="https://asic.gov.au">ASIC SACC reports</a><br/><br/>
     <strong>COVID caveat:</strong> Government stimulus (JobKeeper 2020-21) suppressed demand for fringe credit temporarily. The 2022+ surge reflects unwinding of stimulus + cost-of-living crisis.
     Built by <a href="https://github.com/kymo42/bru">kymo42</a> · Updates daily via GitHub Actions
