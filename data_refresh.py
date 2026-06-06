@@ -219,9 +219,28 @@ def build_payload():
     rising_count = sum(1 for s in STRESS_LEVELS if s["trend"] == "rising")
     overall = min(10, max(1, rising_count + 1))
 
+    # Compute stress breakdown for pie chart (0-100 scale per category)
+    insolvency_score = min(100, max(10, int(insolvency.get("FY2024_yoy_pct", 0) * 5)))  # 15.3% -> 76
+    
+    rba_score = 50
+    if rba_12mo_val is not None:
+        # e.g., +2.0B -> 80, +4.0B -> 100, -2.0B -> 20
+        rba_score = min(100, max(10, int(50 + (rba_12mo_val * 15))))
+        
+    pawn_score = 80  # Based on CCV +20% growth and industry expansion
+    pokie_score = 75  # Structural high stress from venue gaming losses
+
+    stress_breakdown = {
+        "insolvency": {"label": "Personal Insolvency", "score": insolvency_score, "detail": f"+{insolvency['FY2024_yoy_pct']}% YoY"},
+        "pawn": {"label": "Pawn & Alt. Credit", "score": pawn_score, "detail": "CCV loan book +20%"},
+        "credit": {"label": "Consumer Credit (RBA)", "score": rba_score, "detail": f"12mo: {rba_12mo_val:+.1f}B" if rba_12mo_val is not None else "Stable"},
+        "pokie": {"label": "Poker Machine Losses", "score": pokie_score, "detail": "Elevated structural demand"},
+    }
+
     payload = {
         "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "overall_stress_level": overall,
+        "stress_breakdown": stress_breakdown,
         "rba_personal_credit": rba,
         "rba_12mo_change": rba_12mo_val,
         "ccv_price": ccv_price,

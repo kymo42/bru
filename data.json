@@ -1,6 +1,28 @@
 {
-  "last_updated": "2026-06-06 08:11 UTC",
+  "last_updated": "2026-06-06 08:10 UTC",
   "overall_stress_level": 8,
+  "stress_breakdown": {
+    "insolvency": {
+      "label": "Personal Insolvency",
+      "score": 76,
+      "detail": "+15.3% YoY"
+    },
+    "pawn": {
+      "label": "Pawn & Alt. Credit",
+      "score": 80,
+      "detail": "CCV loan book +20%"
+    },
+    "credit": {
+      "label": "Consumer Credit (RBA)",
+      "score": 100,
+      "detail": "12mo: +8.0B"
+    },
+    "pokie": {
+      "label": "Poker Machine Losses",
+      "score": 75,
+      "detail": "Elevated structural demand"
+    }
+  },
   "rba_personal_credit": [
     [
       "31/05/2023",

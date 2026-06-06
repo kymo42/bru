@@ -109,6 +109,45 @@ function buildHTML(data) {
   const stressLevels = data?.stress_levels ?? [];
   const despScale = data?.desperation_scale ?? [];
   const rbaHistory = data?.rba_personal_credit ?? [];
+  const breakdown = data?.stress_breakdown ?? {
+    insolvency: { label: "Personal Insolvency", score: 75, detail: "+15.3% YoY" },
+    pawn: { label: "Pawn & Alt. Credit", score: 80, detail: "CCV loan book +20%" },
+    credit: { label: "Consumer Credit (RBA)", score: 50, detail: "Stable" },
+    pokie: { label: "Poker Machine Losses", score: 75, detail: "Elevated structural demand" }
+  };
+
+  // Build donut chart segments
+  const segments = [
+    { label: breakdown.insolvency.label, value: breakdown.insolvency.score, detail: breakdown.insolvency.detail, color: "#a3a3a3" },
+    { label: breakdown.pawn.label, value: breakdown.pawn.score, detail: breakdown.pawn.detail, color: "#737373" },
+    { label: breakdown.credit.label, value: breakdown.credit.score, detail: breakdown.credit.detail, color: "#525252" },
+    { label: breakdown.pokie.label, value: breakdown.pokie.score, detail: breakdown.pokie.detail, color: "#404040" }
+  ];
+
+  const totalScore = segments.reduce((sum, s) => sum + s.value, 0);
+  const circumference = 2 * Math.PI * 40; // r=40
+  let cumulativePercent = 0;
+  
+  const donutCircles = segments.map((seg) => {
+    const percent = seg.value / totalScore;
+    const dashArray = percent * circumference;
+    const dashOffset = -cumulativePercent * circumference;
+    cumulativePercent += percent;
+    
+    return `<circle cx="50" cy="50" r="40" fill="none" stroke="${seg.color}" stroke-width="16" 
+      stroke-dasharray="${dashArray} ${circumference}" stroke-dashoffset="${dashOffset}" 
+      transform="rotate(-90 50 50)" />`;
+  }).join("");
+
+  const donutLegend = segments.map(seg => `
+    <div style="display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:6px;">
+      <div style="width:12px;height:12px;border-radius:2px;background:${seg.color};"></div>
+      <div style="flex:1;">
+        <div style="font-weight:600;color:var(--text);">${seg.label}</div>
+        <div style="color:var(--muted);font-size:11px;">${seg.detail} (Index: ${seg.value}/100)</div>
+      </div>
+    </div>
+  `).join("");
 
   // Build sparkline data for RBA credit
   const sparkData = rbaHistory.slice(-24).map(([d, v]) => v);
@@ -319,26 +358,37 @@ function buildHTML(data) {
   <!-- Overall stress level -->
   <div class="stress-card">
     <div class="stress-title">Overall Financial Stress Level</div>
-    <div class="stress-row">
-      <div>
+    <div class="stress-row" style="align-items: flex-start;">
+      <div style="flex: 1; min-width: 250px;">
         <div class="stress-level" style="color:${levelColor}">${overallLevel}<span style="font-size:20px;color:var(--muted)">/10</span></div>
         <div class="stress-bar">${levelBar}</div>
         <div class="stress-label">HIGH STRESS — Multiple indicators elevated</div>
-      </div>
-      <div style="flex:1">
-        <div class="stress-drivers">
-          <strong>Key drivers:</strong><br/>
-          📈 13 RBA rate rises (May 2022 – Nov 2023)<br/>
-          📈 Cost-of-living crisis: rent, energy, groceries<br/>
-          📈 Personal insolvencies +15.3% FY2024 YoY<br/>
-          📈 CCV pawn/loan demand up 38% over 3 years<br/>
-          ⚠️ Government stimulus has fully unwound (COVID era)
+        
+        <div style="margin-top: 20px; font-size: 13px; color: var(--text); line-height: 1.7;">
+          <strong>Index Methodology:</strong><br/>
+          The Overall Stress Level (1–10) is a composite index derived from four key pillars of household financial distress. 
+          Unlike mainstream indicators (e.g., unemployment), these metrics capture <em>fringe credit dependency</em> — 
+          when households exhaust traditional banking options and turn to high-cost, high-exploitability alternatives. 
+          A rising score indicates accelerating reliance on debt to cover essential living costs.
         </div>
       </div>
+
+      <div style="flex: 1; min-width: 260px; display: flex; flex-direction: column; align-items: center; padding: 0 16px;">
+        <div style="position: relative; width: 120px; height: 120px; margin-bottom: 16px;">
+          <svg width="100" height="100" viewBox="0 0 100 100" style="transform: scale(1.2);">
+            ${donutCircles}
+            <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="800" fill="${levelColor}">${overallLevel}</text>
+          </svg>
+        </div>
+        <div style="width: 100%;">
+          ${donutLegend}
+        </div>
+      </div>
+
       ${sparkData.length > 1 ? `
-      <div>
+      <div style="flex: 1; min-width: 250px;">
         <div class="spark-label">RBA Other Personal Credit (24mo, $B)</div>
-        <svg class="sparkline" width="300" height="70" viewBox="0 0 300 70">
+        <svg class="sparkline" width="100%" height="70" viewBox="0 0 300 70" preserveAspectRatio="none">
           <defs>
             <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="${levelColor}" stop-opacity="0.3"/>
