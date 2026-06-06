@@ -65,7 +65,16 @@ DESPERATION_SCALE = [
         "notes": "ASIC reported ~1.77M SACCs originated p.a. (2016–17 data, latest published).",
     },
     {
-        "level": 6, "emoji": "🏪", "label": "Pawnbroking",
+        "level": 6, "emoji": "🎰", "label": "Poker Machines (Pubs & Clubs)",
+        "typical_apr": "N/A — avg net loss ~$1,200–$1,500 per adult p.a. in NSW/VIC",
+        "exploitability": "VERY HIGH — continuous play, near-miss psychology, direct debit from welfare",
+        "economic_signal": "Rising net losses = households diverting essential funds to gambling.",
+        "data_proxy": "ASX:ALG (Ainsworth) + ASX:TGR (Tabcorp) venue exposure; NSW/VIC monthly net loss stats",
+        "rises_in_stress": True,
+        "notes": "Multi-pub operators (e.g., Australian Venue Co, HTP, Stellar) hold ~60% of NSW/VIC pokie licenses. Structural demand remains high despite cost-of-living pressures.",
+    },
+    {
+        "level": 7, "emoji": "🏪", "label": "Pawnbroking",
         "typical_apr": "Effective 60–200%+ (varies by state)",
         "exploitability": "HIGH — lose your asset if you can't repay; no credit check",
         "economic_signal": "↑ pawn activity = last resort before crisis. Industry $655M, 841 businesses.",
@@ -74,7 +83,7 @@ DESPERATION_SCALE = [
         "notes": "Cash Converters loan book +20% FY2023. CEO cited 'broader cross-section' of society (AFR Oct 2023).",
     },
     {
-        "level": 7, "emoji": "📺", "label": "Rent-to-Own / Consumer Leases",
+        "level": 8, "emoji": "📺", "label": "Rent-to-Own / Consumer Leases",
         "typical_apr": "60–300%+ effective (e.g. $400 TV → $1,500+ in lease payments)",
         "exploitability": "VERY HIGH — targets Centrelink recipients, direct debits welfare payments",
         "economic_signal": "Growing lease volumes = unable to save for essentials.",
@@ -83,7 +92,7 @@ DESPERATION_SCALE = [
         "notes": "Radio Rentals downsized significantly post-2019 after ASIC enforcement action for unconscionable conduct.",
     },
     {
-        "level": 8, "emoji": "📞", "label": "Debt Collection / Distressed Debt",
+        "level": 9, "emoji": "📞", "label": "Debt Collection / Distressed Debt",
         "typical_apr": "N/A — delinquent/charged-off debts",
         "exploitability": "EXTREME — collection on already-distressed people",
         "economic_signal": "Rising PDL volumes = wave of defaults upstream. Lags by 12–18 months.",
@@ -92,7 +101,7 @@ DESPERATION_SCALE = [
         "notes": "Credit Corp record PDL acquisitions FY2022–23 as banks sold COVID-deferred debt portfolios.",
     },
     {
-        "level": 9, "emoji": "⚖️", "label": "Personal Insolvency",
+        "level": 10, "emoji": "⚖️", "label": "Personal Insolvency",
         "typical_apr": "N/A — terminal event",
         "exploitability": "HIGH — debt agreement admin fees can consume large % of repayments",
         "economic_signal": "FY2024: 12,447 (+15.3% YoY). Part IX Debt Agreements growing fastest. Lags 6–24 months.",
@@ -114,13 +123,15 @@ STRESS_LEVELS = [
      "status": "Rising ↑", "detail": "Wisr + Plenti loan books growing but arrears ticking up."},
     {"level": 5, "emoji": "💵", "label": "Payday / SACC", "trend": "rising",
      "status": "Rising ↑", "detail": "CCV Australian loan book +20% FY2023, +15% FY2024."},
-    {"level": 6, "emoji": "🏪", "label": "Pawnbroking", "trend": "rising",
+    {"level": 6, "emoji": "🎰", "label": "Poker Machines (Pubs/Clubs)", "trend": "rising",
+     "status": "Rising ↑", "detail": "NSW/VIC net losses remain elevated. Multi-pub operators (AVC, HTP) drive structural venue demand."},
+    {"level": 7, "emoji": "🏪", "label": "Pawnbroking", "trend": "rising",
      "status": "Rising ↑", "detail": "CCV revenue +38% over 3 years. CEO signals broader demand base."},
-    {"level": 7, "emoji": "📺", "label": "Rent-to-own", "trend": "falling",
+    {"level": 8, "emoji": "📺", "label": "Rent-to-own", "trend": "falling",
      "status": "Declining ↓", "detail": "Radio Rentals contracted after ASIC action. Market shrinking."},
-    {"level": 8, "emoji": "📞", "label": "Debt collection", "trend": "rising",
+    {"level": 9, "emoji": "📞", "label": "Debt collection", "trend": "rising",
      "status": "Rising ↑", "detail": "CCP PDL acquisitions at record. Lagging indicator — still rising."},
-    {"level": 9, "emoji": "⚖️", "label": "Personal insolvency", "trend": "rising",
+    {"level": 10, "emoji": "⚖️", "label": "Personal insolvency", "trend": "rising",
      "status": "Rising ↑ (+15.3%)", "detail": "AFSA FY2024: 12,447 total. Part IX Debt Agreements leading growth."},
 ]
 
@@ -215,6 +226,12 @@ def build_payload():
         "rba_12mo_change": rba_12mo_val,
         "ccv_price": ccv_price,
         "ccp_price": ccp_price,
+        "pokie_static": {
+            "nsw_annual_net_loss": "~$4.5B+",
+            "vic_annual_net_loss": "~$3.2B+",
+            "major_operators": "Australian Venue Co (AVC), HTP, Stellar Group",
+            "market_share": "~60% of NSW/VIC pokie licenses held by multi-pub operators",
+        },
         "ccv_static": {
             "revenue_fy2024": 310,
             "revenue_fy2023": 296,
@@ -280,6 +297,7 @@ if __name__ == "__main__":
             print(f"  12mo change: {payload['rba_12mo_change']:+.1f}B")
     print(f"  CCV price: ${payload['ccv_price'] or 'N/A'}")
     print(f"  CCP price: ${payload['ccp_price'] or 'N/A'}")
+    print(f"  Pokies: {payload['pokie_static']['nsw_annual_net_loss']} NSW net loss")
     print(f"  Insolvencies FY2024: {payload['insolvency']['FY2024_total']:,} (+{payload['insolvency']['FY2024_yoy_pct']}%)")
     print(f"  Overall stress: {payload['overall_stress_level']}/10")
     print("=" * 60)

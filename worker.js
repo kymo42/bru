@@ -9,7 +9,7 @@
  *   GET  /api/health → Health check
  */
 
-const SITE_TITLE = "bru.lol — Australian Financial Stress Tracker";
+const SITE_TITLE = "Financial Stress Tracker";
 const API_SECRET_HEADER = "x-update-secret";
 
 export default {
@@ -104,6 +104,7 @@ function buildHTML(data) {
   const ccvPrice = data?.ccv_price ?? null;
   const ccvData = data?.ccv_static ?? null;
   const ccpPrice = data?.ccp_price ?? null;
+  const pokieData = data?.pokie_static ?? {};
   const overallLevel = data?.overall_stress_level ?? 7;
   const stressLevels = data?.stress_levels ?? [];
   const despScale = data?.desperation_scale ?? [];
@@ -117,7 +118,7 @@ function buildHTML(data) {
   const sparkPoints = sparkNorm.map((v, i) => `${(i / (sparkNorm.length - 1)) * 280},${60 - v}`).join(" ");
 
   const levelBar = "█".repeat(overallLevel) + "░".repeat(10 - overallLevel);
-  const levelColor = overallLevel >= 8 ? "#ef4444" : overallLevel >= 6 ? "#f97316" : overallLevel >= 4 ? "#eab308" : "#22c55e";
+  const levelColor = overallLevel >= 8 ? "#a3a3a3" : overallLevel >= 6 ? "#737373" : overallLevel >= 4 ? "#525252" : "#404040";
 
   // Stress signals table rows
   const signalRows = stressLevels.map(s => {
@@ -164,21 +165,21 @@ function buildHTML(data) {
   <meta name="description" content="Real-time tracker of Australian household financial stress using pawn shop activity, personal insolvency data, and credit metrics as economic indicators."/>
   <style>
     :root {
-      --bg: #0a0a0f;
-      --bg2: #12121a;
-      --bg3: #1a1a26;
-      --border: #2a2a3d;
-      --text: #e2e2f0;
-      --muted: #7070a0;
-      --accent: #7c6af7;
-      --accent2: #5eead4;
-      --red: #ef4444;
-      --orange: #f97316;
-      --yellow: #eab308;
-      --green: #22c55e;
-      --rising: #f97316;
-      --falling: #22c55e;
-      --stable: #7070a0;
+      --bg: #0d0d0d;
+      --bg2: #141414;
+      --bg3: #1c1c1c;
+      --border: #2a2a2a;
+      --text: #e5e5e5;
+      --muted: #808080;
+      --accent: #a3a3a3;
+      --accent2: #d4d4d4;
+      --red: #737373;
+      --orange: #808080;
+      --yellow: #8c8c8c;
+      --green: #666666;
+      --rising: #a3a3a3;
+      --falling: #525252;
+      --stable: #737373;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
@@ -206,8 +207,8 @@ function buildHTML(data) {
     .card-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
     .card-value { font-size: 32px; font-weight: 800; letter-spacing: -1px; }
     .card-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .card-badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: rgba(249,115,22,0.15); color: var(--orange); margin-top: 6px; }
-    .card-badge.green { background: rgba(34,197,94,0.15); color: var(--green); }
+    .card-badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: rgba(128,128,128,0.15); color: var(--orange); margin-top: 6px; }
+    .card-badge.green { background: rgba(102,102,102,0.15); color: var(--green); }
 
     /* Stress meter */
     .stress-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
@@ -245,7 +246,7 @@ function buildHTML(data) {
     .exploit-medium::before { background: var(--yellow); }
     .exploit-high::before { background: var(--orange); }
     .exploit-veryhigh::before { background: var(--red); }
-    .exploit-extreme::before { background: #9333ea; }
+    .exploit-extreme::before { background: #404040; }
     .scale-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .scale-level { font-size: 11px; font-weight: 800; color: var(--accent); background: var(--bg3); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border); }
     .scale-emoji { font-size: 20px; }
@@ -256,7 +257,7 @@ function buildHTML(data) {
     .scale-value { color: var(--text); flex: 1; }
     .dimmed { color: var(--muted); }
     .exploit-row .scale-value { font-weight: 600; }
-    .exploit-extreme .exploit-row .scale-value { color: #c084fc; }
+    .exploit-extreme .exploit-row .scale-value { color: #a3a3a3; }
     .exploit-veryhigh .exploit-row .scale-value { color: var(--red); }
     .exploit-high .exploit-row .scale-value { color: var(--orange); }
     .exploit-medium .exploit-row .scale-value { color: var(--yellow); }
@@ -286,13 +287,13 @@ function buildHTML(data) {
 
 <div class="header">
   <div>
-    <div class="header-logo">bru.lol</div>
-    <div class="header-title">🇦🇺 Australian Financial Stress Tracker</div>
-    <div class="header-sub">Pawn shops, payday loans & insolvency as economic indicators</div>
+    <div class="header-logo">Stress Index</div>
+    <div class="header-title">Financial Stress Tracker</div>
+    <div class="header-sub">Pokies, pawn shops, payday loans & insolvency as economic indicators</div>
   </div>
   <div class="header-right">
     <div class="updated">Last updated: ${lastUpdated}</div>
-    <div class="updated">Auto-refreshes weekly</div>
+    <div class="updated">Auto-refreshes daily</div>
   </div>
 </div>
 
@@ -403,6 +404,30 @@ function buildHTML(data) {
     </div>
   </div>
 
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">🎰 Poker Machines (Pubs/Clubs)</div>
+      <div class="card-value">${pokieData.nsw_annual_net_loss || "~$4.5B+"}</div>
+      <div class="card-sub">NSW annual net loss (estimate)</div>
+      <div class="card-sub">${pokieData.major_operators || "AVC, HTP, Stellar Group"}</div>
+      <span class="card-badge">${pokieData.market_share || "Multi-pub operators hold ~60% of licenses"}</span>
+    </div>
+    <div class="card">
+      <div class="card-title">🏢 ASX:ALL Aristocrat</div>
+      <div class="card-value">Dominant</div>
+      <div class="card-sub">Largest pokie manufacturer in AU/NZ</div>
+      <div class="card-sub">Acquired Ainsworth (ASX:ALG) in 2022</div>
+      <span class="card-badge">Hardware demand proxy</span>
+    </div>
+    <div class="card">
+      <div class="card-title">🎲 Venue Gaming Health</div>
+      <div class="card-value">Elevated</div>
+      <div class="card-sub">Structural demand remains high</div>
+      <div class="card-sub">Despite cost-of-living pressures</div>
+      <span class="card-badge">Lagging indicator ↑</span>
+    </div>
+  </div>
+
   <!-- Signal table -->
   <div class="section-title">📡 Indicator Signals by Level</div>
   <div class="card" style="padding:0; overflow:hidden; margin-bottom:24px;">
@@ -422,7 +447,7 @@ function buildHTML(data) {
   </div>
 
   <!-- Desperation scale -->
-  <div class="section-title">🪜 The Desperation Scale — 9 Levels of Financial Need</div>
+  <div class="section-title">🪜 The Desperation Scale — 10 Levels of Financial Need</div>
   <p style="color:var(--muted);font-size:12px;margin-bottom:16px;">
     Each level represents a progressively more desperate credit product. When higher levels show growth, society is under financial stress. The left border colour indicates exploitability of the borrower.
   </p>
@@ -431,7 +456,7 @@ function buildHTML(data) {
     <span style="color:var(--yellow)">■ Medium</span>
     <span style="color:var(--orange)">■ High</span>
     <span style="color:var(--red)">■ Very High</span>
-    <span style="color:#c084fc">■ Extreme</span>
+    <span style="color:#a3a3a3">■ Extreme</span>
   </div>
   <div class="scale-grid">
     ${scaleCards}
@@ -448,14 +473,14 @@ function buildHTML(data) {
     <a href="https://www.ibisworld.com/au/industry/pawnbroking/4522/">IBISWorld AU Pawnbroking</a> ·
     <a href="https://asic.gov.au">ASIC SACC reports</a><br/><br/>
     <strong>COVID caveat:</strong> Government stimulus (JobKeeper 2020-21) suppressed demand for fringe credit temporarily. The 2022+ surge reflects unwinding of stimulus + cost-of-living crisis.
-    Built by <a href="https://github.com/kymo42/bru">kymo42</a> · Updates weekly via GitHub Actions
+    Built by <a href="https://github.com/kymo42/bru">kymo42</a> · Updates daily via GitHub Actions
   </div>
 
 </div>
 
 <div class="footer">
   <div class="footer-row">
-    <span>🇦🇺 bru.lol — Australian Financial Stress Tracker</span>
+    <span>Financial Stress Tracker</span>
     <span>Data: RBA · AFSA · ASX · IBISWorld · ASIC</span>
     <a href="https://github.com/kymo42/bru">GitHub</a>
     <a href="/api/data">Raw JSON</a>
