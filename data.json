@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-07 06:11 UTC",
+  "last_updated": "2026-06-08 06:26 UTC",
   "overall_stress_level": 8,
   "stress_breakdown": {
     "insolvency": {
@@ -191,7 +191,7 @@
     "trend": "rising",
     "source": "https://www.afsa.gov.au/about-us/statistics-and-insights",
     "note": "Part IX Debt Agreements leading growth in FY2024.",
-    "last_checked": "2026-06-07"
+    "last_checked": "2026-06-08"
   },
   "stress_levels": [
     {
