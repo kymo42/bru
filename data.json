@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-10 06:11 UTC",
+  "last_updated": "2026-06-11 06:30 UTC",
   "overall_stress_level": 8,
   "stress_breakdown": {
     "insolvency": {
@@ -171,7 +171,7 @@
   ],
   "rba_12mo_change": 8.0,
   "ccv_price": 0.29,
-  "ccp_price": 11.77,
+  "ccp_price": 11.9,
   "pokie_static": {
     "nsw_annual_net_loss": "~$4.5B+",
     "vic_annual_net_loss": "~$3.2B+",
@@ -191,7 +191,7 @@
     "trend": "rising",
     "source": "https://www.afsa.gov.au/about-us/statistics-and-insights",
     "note": "Part IX Debt Agreements leading growth in FY2024.",
-    "last_checked": "2026-06-10"
+    "last_checked": "2026-06-11"
   },
   "stress_levels": [
     {
