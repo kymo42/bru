@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-30 04:42 UTC",
+  "last_updated": "2026-07-31 05:20 UTC",
   "overall_stress_level": 8,
   "stress_breakdown": {
     "insolvency": {
@@ -15,7 +15,7 @@
     "credit": {
       "label": "Consumer Credit (RBA)",
       "score": 100,
-      "detail": "12mo: +5.9B"
+      "detail": "12mo: +9.9B"
     },
     "pokie": {
       "label": "Poker Machine Losses",
@@ -24,10 +24,6 @@
     }
   },
   "rba_personal_credit": [
-    [
-      "30/06/2023",
-      144.3
-    ],
     [
       "31/07/2023",
       143.0
@@ -162,16 +158,20 @@
     ],
     [
       "30/04/2026",
-      162.4
+      164.5
     ],
     [
       "31/05/2026",
-      162.4
+      164.6
+    ],
+    [
+      "30/06/2026",
+      167.4
     ]
   ],
-  "rba_12mo_change": 5.9,
-  "ccv_price": 0.33,
-  "ccp_price": 13.7,
+  "rba_12mo_change": 9.9,
+  "ccv_price": 0.335,
+  "ccp_price": 13.81,
   "pokie_static": {
     "nsw_annual_net_loss": "~$4.5B+",
     "vic_annual_net_loss": "~$3.2B+",
@@ -191,7 +191,7 @@
     "trend": "rising",
     "source": "https://www.afsa.gov.au/about-us/statistics-and-insights",
     "note": "Part IX Debt Agreements leading growth in FY2024.",
-    "last_checked": "2026-07-30"
+    "last_checked": "2026-07-31"
   },
   "stress_levels": [
     {
